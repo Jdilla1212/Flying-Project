@@ -1,6 +1,6 @@
 
     $.ajax({
-        url: "https://api.le-systeme-solaire.net/rest/bodies/",
+        url: "https://api.astrocats.space/catalog?ra=21:23:32.16&dec=-53:01:36.08&radius=2",
         method: "GET"
     }).then(function (response) {
         console.log(response);
