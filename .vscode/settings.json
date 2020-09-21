@@ -1,5 +1,6 @@
 {
     "cSpell.ignoreWords": [
         "crossorigin"
-    ]
+    ],
+    "liveServer.settings.port": 5501
 }

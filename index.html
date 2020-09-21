@@ -67,10 +67,11 @@
         <div class="col s4">
           <div class="card-panel grey darken-4">
             <span class="grey-text text-lighten-2"
-              >I am a very simple card. I am good at containing small bits of
-              information. I am convenient because I require little markup to
-              use effectively. I am similar to what is called a panel in other
-              frameworks.
+              ><ul class="collection grey darken-4">
+                <li class="collection-item grey darken-4" id="location-li">Location</li>
+                <li class="collection-item grey darken-4" id="date-li">Date</li>
+                <li class="collection-item grey darken-4" id="weather-li">Weather</li>
+              </ul>
             </span>
           </div>
         </div>
@@ -78,21 +79,25 @@
         <div class="col s8">
           <div class="card-panel grey darken-4">
             <span class="grey-text text-lighten-2"
-              >I am a very simple card. I am good at containing small bits of
-              information. I am convenient because I require little markup to
-              use effectively. I am similar to what is called a panel in other
-              frameworks.
+              ><ul class="collection grey darken-4">
+                <li class="collection-item grey darken-4" id="planets-li">Planets</li>
+                <li class="collection-item grey darken-4" id="const-li">Constellations</li>
+                <li class="collection-item grey darken-4" id="iss-li">I.S.S.</li>
+              </ul>
             </span>
           </div>
         </div>
       </div>
       <!-- tab row -->
       <div class="row">
-        <a class="waves-effect waves-light btn col s6 grey darken-4" id="btn1"
-          >Map View</a
+        <a class="waves-effect waves-light btn col s4 grey darken-4" id="btn-map"
+          >Map</a
         >
-        <a class="waves-effect waves-light btn col s6 grey darken-4" id="btn2"
-          >Data View</a
+        <a class="waves-effect waves-light btn col s4 grey darken-4" id="btn-data"
+          >Data</a
+        >
+        <a class="waves-effect waves-light btn col s4 grey darken-4" id="btn-sky"
+          >Sky</a
         >
       </div>
       <!-- map or data  -->
