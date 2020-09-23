@@ -50,8 +50,7 @@ function display(info) {
 
 
 ////no let
-let gx
-let infoWindow;
+var gx, infoWindow;
 
 function initMap() {
     gx = new google.maps.Map(document.getElementById("map"), {
