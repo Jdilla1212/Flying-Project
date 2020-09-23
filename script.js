@@ -1,3 +1,18 @@
+// hides the weather card and google map from the start
+$("#weather-row").hide();
+$("#map").hide();
+
+// when you click the map button, hide the weather info and show the map
+$("#btnMap").on("click", () => {
+    $("#weather-row").hide();
+    $("#map").show()
+})
+
+// when you click the weather button, hide the map and show weather info
+$("#btnWeather").on("click", () => {
+    $("#map").hide();
+    $("#weather-row").show()
+})
 
 var plant = document.getElementById("plant-name")
 var plantDe = document.getElementById("plant-details")
