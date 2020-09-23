@@ -12,12 +12,15 @@ function Getby(w) {
 
     return apiRequest
 }
+//JQuery 
+$("#search").on("change submit",getApiData)
 
+function getApiData(event) {
+    event.preventDefault()
+    console.log(event)
 
-
-function getApiData(e) {
     let data;
-    data = e.target.value
+    data = event.target.value
     // no name for arrow funtion result => {
     //     result = result *2;
     //     return reslut
@@ -47,7 +50,8 @@ function display(info) {
 
 
 ////no let
-var gx, infoWindow;
+let gx
+let infoWindow;
 
 function initMap() {
     gx = new google.maps.Map(document.getElementById("map"), {
