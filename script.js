@@ -1,14 +1,57 @@
-$.ajax({
-    url: "https://api.astrocats.space/catalog?ra=21:23:32.16&dec=-53:01:36.08&radius=2",
-    method: "GET"
-}).then(function (response) {
-    console.log(response);
-});
 
-let map, infoWindow;
+var plant = document.getElementById("plant-name")
+var plantDe = document.getElementById("plant-details")
+
+function Getby(w) {
+    let apiRequest;
+    apiRequest = $.ajax({
+        url: "https://api.le-systeme-solaire.net/rest/bodies/" + w,
+        method: "GET"
+    });
+    // retuen the promise 
+
+    return apiRequest
+}
+
+
+
+function getApiData(e) {
+    let data;
+    data = e.target.value
+    // no name for arrow funtion result => {
+    //     result = result *2;
+    //     return reslut
+    // }
+    // function (result) {
+    //     result = result *2;
+    //     return reslut
+    // }
+    Getby(data).done(result => {
+
+        console.log(result, result.englishName);
+        display(result);
+    })
+
+}
+function display(info) {
+    //englishName
+    plant.textContent = info.englishName;
+    plantDe.innerHTML=`
+    <p>discovered By : ${info.discoveredBy} </p>
+    <p>discovery Date : ${info.discoveryDate} </p>
+    <p>Is it a planet : ${info.isPlanet} </p>
+    <p>moons:- ${info.moons.length} </p>
+    `
+}
+
+
+
+////no let
+var gx, infoWindow;
 
 function initMap() {
-    map = new google.maps.Map(document.getElementById("map"), {
+    gx = new google.maps.Map(document.getElementById("map"), {
+
         center: {
             lat: -34.397,
             lng: 150.644
@@ -26,16 +69,20 @@ function initMap() {
                 console.log(pos);
                 infoWindow.setPosition(pos);
                 infoWindow.setContent("Location found.");
-                infoWindow.open(map);
-                map.setCenter(pos);
+
+                infoWindow.open(gx);
+                gx.setCenter(pos);
             },
             () => {
-                handleLocationError(true, infoWindow, map.getCenter());
+                handleLocationError(true, infoWindow, gx.getCenter());
+
             }
         );
     } else {
         // Browser doesn't support Geolocation
-        handleLocationError(false, infoWindow, map.getCenter());
+
+        handleLocationError(false, infoWindow, gx.getCenter());
+
     }
 }
 
@@ -43,8 +90,12 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
     infoWindow.setContent(
         browserHasGeolocation ?
-        "Error: The Geolocation service failed." :
-        "Error: Your browser doesn't support geolocation."
+
+            "Error: The Geolocation service failed." :
+            "Error: Your browser doesn't support geolocation."
     );
-    infoWindow.open(map);
+    infoWindow.open(gx
+
+    );
 }
+
