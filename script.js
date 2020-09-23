@@ -2,6 +2,8 @@
 var plant = document.getElementById("plant-name")
 var plantDe = document.getElementById("plant-details")
 
+$("#map").css("display", "none")
+
 function Getby(w) {
     let apiRequest;
     apiRequest = $.ajax({
@@ -14,6 +16,11 @@ function Getby(w) {
 }
 //JQuery 
 $("#search").on("change submit",getApiData)
+
+$("#btn1").on("click", (event) => {
+    event.preventDefault();
+    $("#map").css("display", "block")
+})
 
 function getApiData(event) {
     event.preventDefault()
@@ -50,8 +57,7 @@ function display(info) {
 
 
 ////no let
-let gx
-let infoWindow;
+var gx, infoWindow;
 
 function initMap() {
     gx = new google.maps.Map(document.getElementById("map"), {
