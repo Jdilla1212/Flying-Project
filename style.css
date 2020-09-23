@@ -1,7 +1,8 @@
  /* label focus color */
- .input-field input[type=text]:focus + label {
-    color: #ffffff;
- }
+ .input-field [type=text] {
+  color: white;
+}
+ 
 .btn {
   border: 2px solid #651fff;
 }
@@ -10,3 +11,5 @@
   .input-field label {
     color: #651fff;
   }
+
+ 

@@ -39,7 +39,8 @@
   <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
-<body class="">
+
+<body class="background-color black">
   <main class="container">
     <!-- navbar -->
     <nav class="grey darken-4">
@@ -49,7 +50,7 @@
     </nav>
     <!-- search bar / we can put this in the nav bar as a drop down or just keep it as is -->
     <!-- remove form -->
-      <div class="input-field">
+      <div class="input-field text-lighten-2">
         <input id="search" type="text"  />
         <label for="search">This can go here or as a dropdown from the navbar</label>
       </div>
@@ -57,32 +58,34 @@
     <div class="row">
       <div class="col s4">
         <div class="card-panel grey darken-4">
-          <span id="plant-name" class="grey-text text-lighten-2">I am a very simple card. I am good at containing small
-            bits of
-            information. I am convenient because I require little markup to
-            use effectively. I am similar to what is called a panel in other
-            frameworks.
+          <span id="plant-name" class="grey-text text-lighten-2">This card will be hidden until a planetary object is searched for. Once a search is submitted, it will appear with the name of the planetary object searched for. We should probably set the appended text to h3 or larger, or we can 
           </span>
         </div>
       </div>
 
       <div class="col s8">
         <div class="card-panel grey darken-4">
-          <div id="plant-details" class="grey-text text-lighten-2">I am a very simple card. I am good at containing
-            small bits of
-            information. I am convenient because I require little markup to
-            use effectively. I am similar to what is called a panel in other
-            frameworks.
+          <div id="plant-details" class="grey-text text-lighten-2">This card will be hidden until a planetary object is searched for. Once a search is submitted, it will appear with the relevant data about a planetary object.
           </div>
         </div>
       </div>
     </div>
     <!-- tab row -->
     <div class="row">
-      <a class="waves-effect waves-light btn col s6 grey darken-4" id="btn1">Map View</a>
-      <a class="waves-effect waves-light btn col s6 grey darken-4" id="btn2">Data View</a>
+      <a class="waves-effect waves-light btn col s6 grey darken-4" id="btnMap">Map View</a>
+      <a class="waves-effect waves-light btn col s6 grey darken-4" id="btnWeather">Data View</a>
     </div>
     <!-- map or data  -->
+    <div class="row" id="weather-row">
+      <div class="col s12">
+        <div class="card grey darken-4" id="weather-card">
+          <div class="card-content white-text">
+            <div class="card-title">Your Location</div>
+            <p>This card will be hidden until the "weather" button is clicked. It will hold the information we get from openweather such as visibility, temperature, all that jazz.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
   <!-- Google map -->
   <div id="map"></div>
