@@ -1,3 +1,4 @@
+
 var plant = document.getElementById("plant-name")
 var plantDe = document.getElementById("plant-details")
 
@@ -50,6 +51,7 @@ var gx, infoWindow;
 
 function initMap() {
     gx = new google.maps.Map(document.getElementById("map"), {
+
         center: {
             lat: -34.397,
             lng: 150.644
@@ -67,16 +69,20 @@ function initMap() {
                 console.log(pos);
                 infoWindow.setPosition(pos);
                 infoWindow.setContent("Location found.");
+
                 infoWindow.open(gx);
                 gx.setCenter(pos);
             },
             () => {
                 handleLocationError(true, infoWindow, gx.getCenter());
+
             }
         );
     } else {
         // Browser doesn't support Geolocation
+
         handleLocationError(false, infoWindow, gx.getCenter());
+
     }
 }
 
@@ -84,6 +90,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
     infoWindow.setContent(
         browserHasGeolocation ?
+
             "Error: The Geolocation service failed." :
             "Error: Your browser doesn't support geolocation."
     );
@@ -91,3 +98,4 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
     );
 }
+
