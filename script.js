@@ -1,3 +1,39 @@
+//style.displya=nonn & block 
+// class css show & hide 
+//class list.add / remove
+var apikey = "f4055f6252cce130567e326c10c2cb16"
+
+function apiCall(city) {
+
+    $.ajax({
+        url: 'http://api.weatherstack.com/current',
+        data: {
+            access_key: apikey,
+            query: city
+        },
+        dataType: 'json',
+        // city & c 
+        success: function (data) {
+            apiData(data)
+        }
+    });
+}
+
+var location;
+var locationName = document.getElementById("locationName")
+var dateName = document.getElementById("locationDate")
+
+function apiData(datapi) {
+
+    locationName.textContent = datapi.location.name;
+    locationDate.innerHTML = `
+    <p>observation_time:  : ${datapi.current.observation_time} </p>
+    <p>temperature:   : ${datapi.current.temperature} </p>
+    <p>visibility:  : ${datapi.current.visibility} </p>
+    `
+
+}
+
 // hides the weather card and google map from the start
 $("#weather-row").hide();
 $("#map").hide();
@@ -28,14 +64,14 @@ function Getby(w) {
     return apiRequest
 }
 //JQuery 
-$("#search").on("change submit",getApiData)
+$("#search").on("change submit", getApiData)
 
-function getApiData(event) {
-    event.preventDefault()
-    console.log(event)
+function getApiData(e) {
+    e.preventDefault()
+    console.log(e)
 
     let data;
-    data = event.target.value
+    data = e.target.value
     // no name for arrow funtion result => {
     //     result = result *2;
     //     return reslut
@@ -54,7 +90,7 @@ function getApiData(event) {
 function display(info) {
     //englishName
     plant.textContent = info.englishName;
-    plantDe.innerHTML=`
+    plantDe.innerHTML = `
     <p>discovered By : ${info.discoveredBy} </p>
     <p>discovery Date : ${info.discoveryDate} </p>
     <p>Is it a planet : ${info.isPlanet} </p>
