@@ -1,0 +1,15 @@
+ /* label focus color */
+ .input-field [type=text] {
+  color: white;
+}
+ 
+.btn {
+  border: 2px solid #651fff;
+}
+
+  /* label color */
+  .input-field label {
+    color: #651fff;
+  }
+
+ 
