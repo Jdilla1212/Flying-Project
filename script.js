@@ -2,14 +2,14 @@
 // class css show & hide 
 //class list.add / remove
 var apikey = "f4055f6252cce130567e326c10c2cb16"
-
-function apiCall(city) {
-
+// let city = "";
+function weatherApi(lat, lon) {
+    
     $.ajax({
-        url: 'http://api.weatherstack.com/current',
+        url: 'http://api.weatherstack.com/current?query=' + lat + ',' + lon,
         data: {
             access_key: apikey,
-            query: city
+            
         },
         dataType: 'json',
         // city & c 
@@ -19,17 +19,19 @@ function apiCall(city) {
     });
 }
 
+
+
 var location;
 var locationName = document.getElementById("locationName")
 var dateName = document.getElementById("locationDate")
 
-function apiData(datapi) {
+function apiData(weatherstackData) {
 
-    locationName.textContent = datapi.location.name;
+    locationName.textContent = weatherstackData.location.name;
     locationDate.innerHTML = `
-    <p>observation_time:  : ${datapi.current.observation_time} </p>
-    <p>temperature:   : ${datapi.current.temperature} </p>
-    <p>visibility:  : ${datapi.current.visibility} </p>
+    <p>observation_time:  : ${weatherstackData.current.observation_time} </p>
+    <p>temperature:   : ${weatherstackData.current.temperature} </p>
+    <p>visibility:  : ${weatherstackData.current.visibility} </p>
     `
 
 }
@@ -115,11 +117,14 @@ function initMap() {
     infoWindow = new google.maps.InfoWindow(); // Try HTML5 geolocation.
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
+            
             position => {
+                console.log(position);
                 const pos = {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                 };
+                weatherApi(pos.lat, pos.lng);
                 console.log(pos);
                 infoWindow.setPosition(pos);
                 infoWindow.setContent("Location found.");
