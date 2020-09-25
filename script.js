@@ -48,7 +48,6 @@ $("#btnMap").on("click", () => {
 $("#btnWeather").on("click", () => {
     $("#map").hide();
     $("#weather-row").show()
-    apiCall("Riyadh")
 })
 
 var plant = document.getElementById("plant-name")
