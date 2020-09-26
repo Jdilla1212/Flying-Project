@@ -1,4 +1,4 @@
-// modal proc on load workaround from https://stackoverflow.com/questions/40430576/how-i-can-open-a-materialize-modal-when-a-window-is-ready
+// modal proc on load workaround from https://stackoverflow.com/questions/40430576/how-i-can-open-a-materialize-modal-when-a-window-is-ready since vue blocks a lot of functionality without installing/importing
 $(document).ready(() => {
   $("#modal").modal();
   $("#modal").modal("open");
@@ -65,7 +65,7 @@ function Getby(w) {
     url: "https://api.le-systeme-solaire.net/rest/bodies/" + w,
     method: "GET",
   });
-  // retuen the promise
+  // return the promise
 
   return apiRequest;
 }
