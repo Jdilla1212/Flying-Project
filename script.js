@@ -30,13 +30,12 @@ var dateName = document.getElementById("locationDate");
 function apiData(weatherstackData) {
   locationName.textContent = weatherstackData.location.name;
   locationDate.innerHTML = `
-    <p>observation_time:  : ${weatherstackData.current.observation_time} </p>
-    <p>temperature:   : ${weatherstackData.current.temperature} </p>
+    <p>The current temperature for your location is: ${weatherstackData.current.temperature}°C </p>
     <div style="display: flex;align-items: center;">
       <span style="margin-right:10px">${weatherstackData.current.weather_descriptions}</span>
       <img  src=${weatherstackData.current.weather_icons[0]}>
     </div>
-    <p>visibility:  : ${weatherstackData.current.visibility} </p>
+    <p>The current visibility for your location is: ${weatherstackData.current.visibility} km</p>
     `;
 }
 
@@ -56,8 +55,6 @@ $("#btnWeather").on("click", () => {
   $("#map").hide();
   $("#weather-row").show();
 
-  // toast for visibility (we probably need an if/else if statement to get low, medium, high visibility responses)
-  M.toast({ html: "Looks like visibility in your area is " + "???" });
 });
 
 var planet = document.getElementById("planet-name");
@@ -102,10 +99,7 @@ function display(info) {
 
   const moons=info.moons ? info.moons.length : 0
   planetDe.innerHTML = `
-    <p>Discovered by : ${info.discoveredBy} </p>
-    <p>Discovery date : ${info.discoveryDate} </p>
-    <p>Is it a planet : ${info.isPlanet} </p>
-    <p>Moons: ${moons} </p>
+    <p> ${info.englishName} was discovered in ${info.discoveryDate} by ${info.discoveredBy}. It has ${moons} moons, with a gravitational pull of ${info.gravity} m/s^2. The estimated mass of ${info.englishName} is ${info.mass.massValue} x 10^${info.mass.massExponent} kg. For reference, compare that to the Sun, which has a gravitational pull of 274 m/s^2 and a mass of 1.989 x 10^30 kg.
     `;
 
   // show planet info cards
