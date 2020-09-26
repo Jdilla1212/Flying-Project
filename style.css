@@ -20,10 +20,3 @@
  .material-icons {
    color: #651fff
  }
-
- .toasty-toast {
-  top: auto !important;
-  right: auto !important;
-  bottom: 10%;
-  left:7%;  
-}
