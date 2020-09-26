@@ -29,14 +29,12 @@ var locationName = document.getElementById("locationName");
 var dateName = document.getElementById("locationDate");
 
 function apiData(weatherstackData) {
-  locationName.textContent = weatherstackData.location.name;
   locationDate.innerHTML = `
-    <p>The current temperature for your location is: ${weatherstackData.current.temperature}°C </p>
-    <div style="display: flex;align-items: center;">
-      <span style="margin-right:10px">${weatherstackData.current.weather_descriptions}</span>
+  <p>For your current location, ${weatherstackData.location.name}, the forecast is ${weatherstackData.current.weather_descriptions}. The current temperature is ${weatherstackData.current.temperature} degrees Celsius, and the visibility range is approximately ${weatherstackData.current.visibility} km.<p>
+
+  <div style="display: flex;align-items: center;">
       <img  src=${weatherstackData.current.weather_icons[0]}>
     </div>
-    <p>The current visibility for your location is: ${weatherstackData.current.visibility} km</p>
     `;
 }
 

@@ -12,8 +12,8 @@
        * element that contains the map. */
       #map {
         height: 40%;
-        width: 85%;
-        margin-left: 7.5%;
+        width: 70%;
+        margin-left: 15%;
       }
 
       /* Optional: Makes the sample page fill the window. */
@@ -41,7 +41,7 @@
   <body class="background-color black">
     <main class="container">
       <!-- navbar -->
-      <nav class="grey darken-4">
+      <nav class="grey darken-4" id="navbar">
         <div class="nav-wrapper">
           <a class="brand-logo center grey-text text-lighten-2"
             ><i class="material-icons">brightness_2</i> PlanetFinder</a
@@ -110,11 +110,9 @@
         <div class="col s12">
           <div class="card-panel grey darken-4" id="weather-card">
             <div class="card-content white-text">
-              <div class="card-title" id="locationName">Your Location</div>
+              <div class="card-title" id="locationName"></div>
               <p id="locationDate" class="h2">
-                This card will be hidden until the "weather" button is clicked.
-                It will hold the information we get from openweather such as
-                visibility, temperature, all that jazz.
+                Oops! Looks like you decided not to share your location. If you'd like to see the weather where you're at, refresh the page and allow geolocation.
               </p>
             </div>
           </div>
