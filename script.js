@@ -32,6 +32,10 @@ function apiData(weatherstackData) {
   locationDate.innerHTML = `
     <p>observation_time:  : ${weatherstackData.current.observation_time} </p>
     <p>temperature:   : ${weatherstackData.current.temperature} </p>
+    <div style="display: flex;align-items: center;">
+      <span style="margin-right:10px">${weatherstackData.current.weather_descriptions}</span>
+      <img  src=${weatherstackData.current.weather_icons[0]}>
+    </div>
     <p>visibility:  : ${weatherstackData.current.visibility} </p>
     `;
 }
@@ -94,11 +98,14 @@ function getApiData(e) {
 function display(info) {
   //englishName
   planet.textContent = info.englishName;
+
+
+  const moons=info.moons ? info.moons.length : 0
   planetDe.innerHTML = `
     <p>Discovered by : ${info.discoveredBy} </p>
     <p>Discovery date : ${info.discoveryDate} </p>
     <p>Is it a planet : ${info.isPlanet} </p>
-    <p>Moons: ${info.moons.length} </p>
+    <p>Moons: ${moons} </p>
     `;
 
   // show planet info cards
