@@ -12,7 +12,7 @@ var apikey = "f4055f6252cce130567e326c10c2cb16";
 // let city = "";
 function weatherApi(lat, lon) {
   $.ajax({
-    url: "http://api.weatherstack.com/current?query=" + lat + "," + lon,
+    url: "https://api.weatherstack.com/current?query=" + lat + "," + lon,
     data: {
       access_key: apikey,
     },
