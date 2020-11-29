@@ -6,7 +6,7 @@ Repo for our first project
 Planet Search
 
 ## Project Description:
-An app that pulls information on the planets and moons of the night sky, displaying some quick facts on whatever object you searched. It also features a built in map based off your location, and a weather tab, incase you were planning a night hike to look at the sky.
+An application that uses Google Maps API and Solar System OpenData for geolocation, weather information, and astronomical data. It also features a built in map based off your location, and a weather tab, incase you were planning a night hike to look at the sky.
 
 With Planet Search, a user can search for information on planets and moons in the night sky, finding quick information without sifting through all the fluff of something like a wikipedia article.
 
